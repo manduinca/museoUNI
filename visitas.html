@@ -15,15 +15,17 @@
 		<!-- Javascript -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/kickstart.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&callback=iniciar"></script>
+
 	</head>
 
-	<body>
+	<body onload="iniciar()">
 		<div class="grid">
 			<div class="col_4" style="margin-top:100px;">
 				<img src="images/zafiro.svg" style="margin-bottom:20px"/>
 				<!-- Menu Vertical Left -->
 				<ul class="menu vertical">
-					<li class="current"><a href="index.html">Inicio</a></li>
+					<li><a href="index.html">Inicio</a></li>
 					<li><a href="minerales.html">Minerales</a></li>
 					<li><a href="">Fósiles</a>
 						<ul>
@@ -39,16 +41,11 @@
 							<li><a href="">Sub Item</a></li>
 						</ul>
 					</li>
-					<li><a href="visitas.html">Visitas</a></li>
+					<li class="current"><a href="visitas.html">Visitas</a></li>
 				</ul>
 			</div>
 			<div class="col_8" style="margin-top:100px;">
-				<ul class="slideshow">
-					<li><img src="images/portada1.JPG" width="500" height="300" /></li>
-					<li><img src="images/portada2.JPG" width="500" height="300" /></li>
-					<li><img src="images/portada3.JPG" width="500" height="300" /></li>
-				<!--	<li><h3>Slide Anything</h3><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></li>-->
-				</ul>
+				<div id="map" style="width:600px; height:400px;left:10%;"></div> 
 				<h5 class="center">
 					Museo de la Facultad de Ingeniería Geológica, Minera y Metalúrgica de la Universidad Nacional de Ingeniería
 				</h5>
@@ -59,4 +56,15 @@
 			</div>
 		</div> <!-- End Grid -->
 	</body>
+	
+	<script>
+		function iniciar() {
+			var mapOptions = {
+			center: new google.maps.LatLng(-12.024, -77.047),
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP};
+			var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+		}            
+	</script>
+	
 </html>
